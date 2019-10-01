@@ -23,6 +23,11 @@ class FoodNetwork(AbstractScraper):
             for ingredient in ingredients_html
         ]
 
+    def tags(self):
+        tags_html = self.soup.findAll('a', {'class': 'o-Capsule__a-Tag'})
+
+        return [normalize_string(tag.get_text()) for tag in tags_html]
+
     def instructions(self):
         instructions_html = self.soup.find('section', {'class': 'o-Method'}).findAll('p')
 

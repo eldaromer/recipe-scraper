@@ -1,3 +1,7 @@
+### Modifications
+Added tags and servings for epicurious
+Added tags for foodnetwork
+
 ## Recipe scrapers
 
 [![Build Status](https://travis-ci.org/hhursev/recipe-scraper.svg?branch=master)](https://travis-ci.org/hhursev/recipe-scraper)

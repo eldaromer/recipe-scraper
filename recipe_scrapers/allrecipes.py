@@ -23,6 +23,9 @@ class AllRecipes(AbstractScraper):
             if ingredient.get_text(strip=True) not in ('Add all ingredients to list', '')
         ]
 
+    def servings(self):
+        return normalize_string(self.soup.find('span', {'ng-bind': 'adjustedServings'}).get_text())
+
     def instructions(self):
         instructions_html = self.soup.findAll('span', {'class': 'recipe-directions__list--item'})
 

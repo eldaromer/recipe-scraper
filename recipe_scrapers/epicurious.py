@@ -22,6 +22,14 @@ class Epicurious(AbstractScraper):
             for ingredient in ingredients_html
         ]
 
+    def tags(self):
+    	tags_html = self.soup.findAll('dt', {'itemprop': 'recipeCategory'})
+
+    	return [normalize_string(tag.get_text()) for tag in tags_html]
+
+    def servings(self):
+        return normalize_string(self.soup.find('dd', {'itemprop': 'recipeYield'}).get_text())
+
     def instructions(self):
         instructions_html = self.soup.find('ol', {'class': 'preparation-groups'}).find_all('li')
 
